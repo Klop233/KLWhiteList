@@ -6,6 +6,18 @@ Players:
 # 插件显示的信息 | 不要把任何一条去掉
 msg:
   kick: "你没有白名单"
+  batch: "批量操作:"
+  help:
+    - "============[ KL WhiteList ]============"
+    - "主命令：/whitelist"
+    - "别名：/wl"
+    - "参数有 ... 为支持批量操作"
+    - "/whitelist add [玩家名] [玩家名] ... - 将玩家加入白名单()"
+    - "/whitelist remove [玩家名] [玩家名] ... - 将玩家从白名单移除"
+    - "/whitelist list - 列出白名单玩家"
+    - "/whitelist check [玩家名] [玩家名] ... - 查询该玩家是否拥有白名单"
+    - "/whitelist switch - 切换白名单状态(开启/关闭)"
+    - "/whitelist status - 查询白名单状态"
   commands:
     whitelist:
       usage: "使用方法: /whitelist help"
@@ -24,5 +36,9 @@ msg:
       usage: "使用方法: /whitelist switch"
       result_1: "&2已成功开启白名单"
       result_2: "&2已成功关闭白名单"
+    check:
+      usage: "使用方法: /whitelist check <玩家名>"
+      result_1: "&2玩家 &r%player% &2拥有白名单"
+      result_2: "&c玩家 &r%player% &c没有白名单"
     reload:
       success: "&2已成功重载配置文件"
