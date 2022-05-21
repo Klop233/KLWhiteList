@@ -1,0 +1,28 @@
+# 是否开启白名单
+Enable: true
+# 白名单玩家列表
+Players:
+  - "player1"
+# 插件显示的信息 | 不要把任何一条去掉NND
+msg:
+  kick: "你没有白名单"
+  commands:
+    whitelist:
+      usage: "使用方法: /whitelist help"
+    add:
+      usage: "使用方法: /whitelist add <玩家名>"
+      success: "&2已成功将 &r%player% &2添加至白名单"
+      failed: "&c该玩家已经是白名单玩家!"
+    remove:
+      usage: "使用方法: /whitelist remove <玩家名>"
+      success: "&2已成功将 &r%player% &2从白名单移除"
+      failed: "&c该玩家不是白名单玩家!"
+    list:
+      usage: "使用方法: /whitelist list"
+      result: "白名单列表: %player_list%"
+    switch:
+      usage: "使用方法: /whitelist switch"
+      result_1: "&2已成功开启白名单"
+      result_2: "&2已成功关闭白名单"
+    save:
+      success: "&2成功保存数据"
