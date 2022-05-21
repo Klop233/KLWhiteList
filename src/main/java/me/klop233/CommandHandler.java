@@ -1,13 +1,11 @@
 package me.klop233;
 
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
-import java.util.Objects;
 
 public class CommandHandler implements CommandExecutor {
     @Override
@@ -29,8 +27,8 @@ public class CommandHandler implements CommandExecutor {
             listExec(sender);
         } else if ("switch".equalsIgnoreCase(args[0])) {
             switchExec(sender);
-        } else if ("save".equalsIgnoreCase(args[0])) {
-            saveExec(sender);
+        } else if ("reload".equalsIgnoreCase(args[0])) {
+            reloadExec(sender);
         }
 
         return true;
@@ -92,8 +90,8 @@ public class CommandHandler implements CommandExecutor {
         );
     }
 
-    public void saveExec(CommandSender sender) {
-        Main.getInstance().saveConfig();
-        sender.sendMessage(Main.getLang("msg.commands.save.success"));
+    public void reloadExec(CommandSender sender) {
+        Main.getInstance().reloadConfig();
+        sender.sendMessage(Main.getLang("msg.commands.reload.success"));
     }
 }
