@@ -16,7 +16,9 @@ public class Main extends JavaPlugin{
         getLogger().info("KL WhiteList is Loading");
         saveDefaultConfig();
         config = getConfig();
+        // 注册命令
         getCommand("whitelist").setExecutor(new CommandHandler());
+        // 注册时间监听器
         Bukkit.getPluginManager().registerEvents(new EventsListener(), this);
         getLogger().info("KL WhiteList is Loaded");
     }
@@ -27,7 +29,8 @@ public class Main extends JavaPlugin{
 
     public static String getLang(String path) {
         if (config.getString(path) == null)
-            return "§你奶奶的把语言文件搞坏了";
+            return "&c语言文件异常\n缺少&2" + path;
+        // 替换颜色代码并返回
         return config.getString(path).replace("&", "§");
     }
 

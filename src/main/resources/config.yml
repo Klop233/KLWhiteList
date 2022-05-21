@@ -3,7 +3,7 @@ Enable: true
 # 白名单玩家列表
 Players:
   - "player1"
-# 插件显示的信息 | 不要把任何一条去掉NND
+# 插件显示的信息 | 不要把任何一条去掉
 msg:
   kick: "你没有白名单"
   commands:
