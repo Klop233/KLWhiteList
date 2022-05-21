@@ -14,7 +14,7 @@ public class CommandHandler implements CommandExecutor {
     @ParametersAreNonnullByDefault
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args){
         if (args.length == 0){
-            sender.sendMessage("用法: /wl help");
+            sender.sendMessage(Main.getLang("msg.commands.whitelist.usage"));
             return true;
         }
 
