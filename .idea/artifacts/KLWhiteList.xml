@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="KLWhiteList">
+    <output-path>$PROJECT_DIR$/out/artifacts/KLWhiteList</output-path>
+    <root id="archive" name="KLWhiteList.jar">
+      <element id="module-output" name="KLWhiteList" />
+    </root>
+  </artifact>
+</component>
