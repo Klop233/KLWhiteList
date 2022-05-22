@@ -33,6 +33,11 @@ public class CommandHandler implements CommandExecutor {
             checkExec(sender, args);
         } else if ("reload".equalsIgnoreCase(args[0])) {
             reloadExec(sender);
+        } else if ("status".equalsIgnoreCase(args[0])) {
+            statusExec(sender);
+        } else {
+            for (String s : Main.config.getStringList("msg.help"))
+                sender.sendMessage(s.replace("&", "§"));
         }
 
         return true;

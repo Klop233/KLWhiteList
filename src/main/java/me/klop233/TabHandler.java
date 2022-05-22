@@ -18,7 +18,7 @@ public class TabHandler implements TabCompleter {
             // 控制台返回null
             return null;
         }
-        if (args.length == 1) {
+        if (args.length == 0) {
             List<String> result = new ArrayList<>();
             result.add("add");
             result.add("remove");

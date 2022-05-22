@@ -23,6 +23,7 @@ public class Main extends JavaPlugin{
         Bukkit.getPluginManager().registerEvents(new EventsListener(), this);
         // 注册命令补全器
         Objects.requireNonNull(Bukkit.getPluginCommand("whitelist")).setTabCompleter(new TabHandler());
+
         getLogger().info("KL WhiteList is Loaded");
     }
 
