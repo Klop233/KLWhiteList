@@ -1,6 +1,6 @@
 name: KLWhiteList
 main: me.klop233.Main
-version: 1.1.1
+version: 1.1.2
 commands:
   whitelist:
     aliases:
