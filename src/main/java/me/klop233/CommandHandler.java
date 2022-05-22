@@ -6,6 +6,7 @@ import org.bukkit.command.CommandSender;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
+import java.util.Objects;
 
 public class CommandHandler implements CommandExecutor {
     @Override
@@ -17,7 +18,7 @@ public class CommandHandler implements CommandExecutor {
         }
 
         // 子命令
-        if ("help".equalsIgnoreCase(args[0])) {
+        if ("help".equalsIgnoreCase(args[0])) { // 发送帮助信息
             for (String s : Main.config.getStringList("msg.help"))
                 sender.sendMessage(s.replace("&", "§"));
         } else if ("add".equalsIgnoreCase(args[0])) {
@@ -40,18 +41,22 @@ public class CommandHandler implements CommandExecutor {
     public void addExec(CommandSender sender, String[] args) {
         if (args.length >= 2) { // 当参数足够才执行
 
+            // 批量操作提示
             if (args.length != 2)
                 sender.sendMessage(Main.getLang("msg.batch"));
 
             for (int i=1;i<args.length;i++){
+                // 若包含要添加的发送失败信息
                 if (Main.config.getList("Players").contains(args[i])) {
                     sender.sendMessage(Main.getLang("msg.commands.add.failed"));
                 } else {
                     List<String> WList_ = Main.config.getStringList("Players");
                     // 去空格并添加
                     WList_.add(args[i].replace(" ", ""));
+                    // 修改config并保存
                     Main.config.set("Players", WList_);
                     Main.getInstance().saveConfig();
+                    // 发送成功提示语
                     sender.sendMessage(Main.getLang("msg.commands.add.success")
                             .replace("%player%", args[i]));
                     Main.getInstance().saveConfig();
@@ -65,11 +70,11 @@ public class CommandHandler implements CommandExecutor {
 
     public void removeExec(CommandSender sender, String[] args) {
         if (args.length >= 2) { // 当参数足够才执行
-
+            // 批量操作提示
             if (args.length != 2)
                 sender.sendMessage(Main.getLang("msg.batch"));
 
-            for (int i=1;i<args.length;i++){
+            for (int i=1;i<args.length;i++){ // 批量操作
                 if (!Main.config.getList("Players").contains(args[i])) {
                     sender.sendMessage(Main.getLang("msg.commands.remove.failed"));
                 } else {
@@ -129,7 +134,14 @@ public class CommandHandler implements CommandExecutor {
         }
     }
 
+    public void statusExec(CommandSender sender) {
+        sender.sendMessage(Objects.toString(Main.config.getBoolean("Enable"))
+                           .replace("true", Main.getLang("msg.commands.status.result_1"))
+                           .replace("false", Main.getLang("msg.commands.status.result_2")));
+    }
+
     public void reloadExec(CommandSender sender) {
+        // 重载配置文件并发送信息
         Main.getInstance().reloadConfig();
         sender.sendMessage(Main.getLang("msg.commands.reload.success"));
     }

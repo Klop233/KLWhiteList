@@ -1,8 +1,9 @@
 name: KLWhiteList
 main: me.klop233.Main
-version: 1.0.1
+version: 1.1.1
 commands:
   whitelist:
     aliases:
       - "wl"
     usage: "/wl help"
+    permission: "KLWhiteList.use"

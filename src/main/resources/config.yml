@@ -3,15 +3,20 @@ Enable: true
 # 白名单玩家列表
 Players:
   - "player1"
+# 当没有白名单的玩家试图加入服务器时是否广播
+Broadcast: false
+# 当没有白名单的玩家试图加入服务器时是否提示OP
+TellOP: true
+
 # 插件显示的信息 | 不要把任何一条去掉
 msg:
   kick: "你没有白名单"
   batch: "批量操作:"
   help:
     - "============[ KL WhiteList ]============"
-    - "主命令：/whitelist"
-    - "别名：/wl"
+    - "主命令：/whitelist     别名：/wl"
     - "参数有 ... 为支持批量操作"
+    - "/whitelist help (指令)  - 显示插件帮助"
     - "/whitelist add [玩家名] [玩家名] ... - 将玩家加入白名单()"
     - "/whitelist remove [玩家名] [玩家名] ... - 将玩家从白名单移除"
     - "/whitelist list - 列出白名单玩家"
@@ -40,5 +45,8 @@ msg:
       usage: "使用方法: /whitelist check <玩家名>"
       result_1: "&2玩家 &r%player% &2拥有白名单"
       result_2: "&c玩家 &r%player% &c没有白名单"
+    status:
+      result_1: "白名单状态: &a开启"
+      result_2: "白名单状态: &a关闭"
     reload:
       success: "&2已成功重载配置文件"
