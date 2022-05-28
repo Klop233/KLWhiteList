@@ -7,14 +7,16 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.List;
 import java.util.Objects;
 
+
 public class Main extends JavaPlugin{
     public static FileConfiguration config;
     public static Main instance;
 
     @Override
     public void onEnable() {
-        instance = this;
         getLogger().info("KL WhiteList is Loading");
+
+        instance = this;
         saveDefaultConfig();
         config = getConfig();
         // 注册命令
@@ -43,4 +45,6 @@ public class Main extends JavaPlugin{
     public static List<String> getListLang(String path) {
         return null;
     }
+
+
 }

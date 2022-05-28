@@ -148,6 +148,7 @@ public class CommandHandler implements CommandExecutor {
     public void reloadExec(CommandSender sender) {
         // 重载配置文件并发送信息
         Main.getInstance().reloadConfig();
+        Main.config = Main.instance.getConfig();
         sender.sendMessage(Main.getLang("msg.commands.reload.success"));
     }
 }

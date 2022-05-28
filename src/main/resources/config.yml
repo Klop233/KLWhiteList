@@ -23,6 +23,8 @@ msg:
     - "/whitelist check [玩家名] [玩家名] ... - 查询该玩家是否拥有白名单"
     - "/whitelist switch - 切换白名单状态(开启/关闭)"
     - "/whitelist status - 查询白名单状态"
+  broadcast: "玩家 %player% 因无白名单被拒绝加入游戏"
+  tellop: "玩家 %player% 因无白名单被拒绝加入游戏"
   commands:
     whitelist:
       usage: "使用方法: /whitelist help"
